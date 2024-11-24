@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="PickScan deals with the automated discovery of manipulated objects from handheld interactions, and allows for their reconstruction downstream.">
+  <meta name="keywords" content="Pickscan">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PickScan</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">PickScan: Object discovery and reconstruction from handheld interactions</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://linkedin.com/in/vincent-van-der-brugge">Vincent van der Brugge</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://people.inf.ethz.ch/marc.pollefeys/">Marc Pollefeys</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="http://web.mit.edu/cocosci/josh.html">Joshua B. Tenenbaum</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://krrish94.github.io/">Krishna Murthy Jatavallabhula</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ayushtewari.com/">Ayush Tewari</a><sup>2</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>ETH Zürich,</span>
+            <span class="author-block"><sup>2</sup>MIT</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2411.11196v1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2411.11196v1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/vincentvanderbrugge/pickandscan"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/pickscan_teaser_720p.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">PickScan</span> discovers picked-up objects and allows for their 3D reconstruction downstream.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Reconstructing compositional 3D representations of scenes, where each object is represented with its own 3D model, is a highly desirable capability in robotics and augmented reality. However, most existing methods rely heavily on strong appearance priors for object discovery, therefore only working on those classes of objects on which the method has been trained, or do not allow for object manipulation, which is necessary to scan objects fully and to guide object discovery in challenging scenarios. We address these limitations with a novel interaction-guided and class-agnostic method based on object displacements that allows a user to move around a scene with an RGB-D camera, hold up objects, and finally outputs one 3D model per held-up object. Our main contribution to this end is a novel approach to detecting user-object interactions and extracting the masks of manipulated objects. On a custom-captured dataset, our pipeline discovers manipulated objects with 78.3% precision at 100% recall and reconstructs them with a mean chamfer distance of 0.90cm. Compared to Co-Fusion, the only comparable interaction-based and class-agnostic baseline, this corresponds to a reduction in chamfer distance of 73% while detecting 99% fewer false positives.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+
+  </div>
+</section>
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{vanderbrugge2024pickscan,
+      author   = {Vincent van der Brugge and Marc Pollefeys and Joshua B. Tenenbaum and Krishna Murthy Jatavallabhula and Ayush Tewari},
+      title    = {PickScan: Object discovery and reconstruction from handheld interactions},
+      journal  = {IROS},
+      year     = {2024},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/documents/pickscan_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/vincentvanderbrugge/pickandscan" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website was adapted from the <a
+                                                href="https://nerfies.github.io/">Nerfies website</a>, which is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies website's source code</a>,
+            we just ask that you link back to the <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies website's source code</a> in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
